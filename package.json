@@ -1,0 +1,34 @@
+{
+  "name": "nlp-js-tools-french",
+  "version": "1.0.0",
+  "description": "POS Tagger and lemmatizer for javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastienbot/nlp-js-tools-french.git"
+  },
+  "keywords": [
+    "nlp",
+    "tokenizer",
+    "tokenize",
+    "pos",
+    "tagger",
+    "Part-Of-Speech",
+    "Tagger",
+    "lemma",
+    "lemmatizer",
+    "javascript",
+    "js",
+    "nodejs",
+    "node"
+  ],
+  "author": "Bastien Botella",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bastienbot/nlp-js-tools-french/issues"
+  },
+  "homepage": "https://github.com/bastienbot/nlp-js-tools-french#readme"
+}
