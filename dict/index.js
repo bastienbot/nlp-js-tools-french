@@ -9,7 +9,7 @@ var pre = require('./pre');
 var ver = require('./ver');
 
 module.exports = {
-    dicts: {
+    all: {
         adj,
         adv,
         art,
