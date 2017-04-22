@@ -1,62 +1,36 @@
 'use strict';
 
 var Dicts = require('./dict');
+var Config = require('./config');
+var Tokenize = require('./algos/tokenize');
+var Stem = require('./algos/stem');
+var PosTag = require('./algos/pos-tag');
+var Lemmatize = require('./algos/lemmatize');
 
 module.exports = NlpjsTFr;
 
-function orderByObjId (array) {
-    array.sort(function(a, b) {
-        return a.id - b.id;
-    });
-    return array;
-}
+function NlpjsTFr(sentence, userConfig) {
 
-function NlpjsTFr(config){
+    this.config = new Config(userConfig);
 
-    this.config = {
-        tagTypes: config.tagTypes || ["adj", "adv", "art", "con", "nom", "ono", "pre", "ver"],
-        strictness: config.strictness || false,
-        perfLog: false
+    this.sentence = sentence;
+    this.tokenized = null;
+    this.posTagged = null;
+    this.stemmed = null;
+    this.lemmatized = null;
+
+    this.tokenizer = function() {
+        this.tokenized = Tokenize();
+        return this.tokenized;
     };
 
-    this.tokenize = function(sentence) {
-        var tokens = sentence.replace(/[^a-zA-Z0-9\u00C0-\u00FF]+/g, ' ').split(' ')
-        return tokens;
+    this.posTagger = function() {
+        this.posTagged = PosTag();
+        return this.posTagged;
     };
 
-    this.posTag = function(tokenizedWords) {
-        var taggedWords = [];
-        var taggedObjs = [];
-        var wordsAsObj = [];
-        tokenizedWords.forEach(function(word, id) {
-            wordsAsObj.push({id, word});
-        });
-        var dicWord = this.config.strictness === true ? "word" : "word_nosc";
-        // We go through all types so we won't need
-        // to iterate several time through the dictonnaries
-        this.config.tagTypes.forEach((type) => {
-            // Iterating through a dictionnary
-            Dicts.all[type].lexi.forEach((wordDict) => {
-                // Iterating through words from corpus
-                // We compare to either the word with special chars or not
-                wordsAsObj.forEach(function(wordObj) {
-                    if (wordDict[dicWord] === wordObj.word) {
-                        taggedObjs.push({
-                            id: wordObj.id,
-                            word: wordObj.word,
-                            lemma: wordDict.lemma,
-                            pos: wordDict.pos,
-                        });
-                    }
-                });
-            });
-        });
-        // console.log(taggedObjs);
-        return orderByObjId(taggedObjs);
-    };
+    this.stemmer = Stem;
 
-    this.lemmatizer = function() {
-
-    };
+    this.lemmatizer = Lemmatize;
 
 }
