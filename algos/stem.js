@@ -1,5 +1,17 @@
 'use strict';
 
+module.exports = function(_that) {
+    var stemmedObjects = [];
+    _that.tokenized.forEach(function(token, index) {
+        stemmedObjects.push({
+            id: index,
+            word: token,
+            stem: stem(token)
+        });
+    });
+    return stemmedObjects;
+}
+
 /*
  * Author: Kasun Gajasinghe, University of Moratuwa
  * E-Mail: kasunbg AT gmail DOT com
@@ -31,7 +43,7 @@
  *
  */
 
-module.exports = function(word) {
+function stem(word) {
 
     word = word.toLowerCase();
     var oriWord = word;
@@ -260,32 +272,3 @@ module.exports = function(word) {
     word = word.toLowerCase();
     return word;
 };
-
-var eqOut = new Array();
-var noteqOut = new Array();
-var eqCount = 0;
-/*
-To test the stemming, create two arrays named "voc" and "COut" which are for vocabualary and the stemmed output.
-Then add the vocabulary strings and output strings. This method will generate the stemmed output for "voc" and will
-compare the output with COut.
- (I used porter's voc and out files and did a regex to convert them to js objects. regex: /");\nvoc.push("/g . This
-  will add strings to voc array such that output would look like: voc.push("foobar"); ) drop me an email for any help.
- */
-function testFr(){
-    var start = new Date().getTime(); //execution time
-    eqCount = 0;
-    eqOut = new Array();
-    noteqOut = new Array();
-    for(var k=0;k<voc.length;k++){
-        if(COut[k]==stemmer(voc[k])){
-            eqCount++;
-            eqOut.push("v: "+voc[k]+" c: "+COut[k]);
-        } else {
-            noteqOut.push(voc[k]+", c: "+COut[k]+" s:"+stemmer(voc[k]));
-        }
-    }
-    var end = new Date().getTime(); //execution time
-    var time = end-start;
-    alert("equal count= "+eqCount+" out of "+voc.length+" words. time= "+time+" ms");
-    //console.log("equal count= "+eqCount+" out of "+voc.length+" words. time= "+time+" ms");
-}

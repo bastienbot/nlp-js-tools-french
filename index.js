@@ -1,6 +1,7 @@
 'use strict';
 
 var Config = require('./config');
+var Logger = require('./logger');
 var Tokenize = require('./algos/tokenize');
 var FindTokens = require('./algos/find-tokens');
 var Stem = require('./algos/stem');
@@ -12,6 +13,7 @@ module.exports = NlpjsTFr;
 function NlpjsTFr(sentence, userConfig) {
 
     this.config = new Config(userConfig);
+    this.logger = new Logger(this.config);
 
     this.sentence = sentence;
     this.tokenized = null;
@@ -22,7 +24,7 @@ function NlpjsTFr(sentence, userConfig) {
 
     this.tokenizer = function() {
         this.tokenized = Tokenize(this);
-        console.log(this.tokenized);
+        this.logger.debug("Tokenizer: ", this.tokenized);
         return this.tokenized;
     };
 
@@ -31,7 +33,7 @@ function NlpjsTFr(sentence, userConfig) {
             this.foundTokensInDicts = FindTokens(this);
         }
         this.posTagged = PosTag(this);
-        console.log("Pos Tag: ", this.posTagged);
+        this.logger.debug("Pos Tag: ", this.posTagged);
         return this.posTagged;
     };
 
@@ -40,13 +42,13 @@ function NlpjsTFr(sentence, userConfig) {
             this.foundTokensInDicts = FindTokens(this);
         }
         this.lemmatized = Lemmatize(this);
-        console.log("Lemmas: ", this.lemmatized);
+        this.logger.debug("Lemmas: ", this.lemmatized);
         return this.lemmatized;
     };
 
     this.stemmer = function() {
         this.stemmed = Stem(this);
-        console.log("Stemmed: ", this.stemmed);
+        this.logger.debug("Stemmed: ", this.stemmed);
         return this.stemmed;
     };
 

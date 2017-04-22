@@ -1,20 +1,19 @@
 'use strict';
 
-var t1 = Date.now();
-
 var NlpjsTFr = require('../');
 
 var corpus = "Elle semble se nourrir essentiellement de plancton, et de hotdog.";
 
-var nlpToolsFr = new NlpjsTFr(corpus, {
+var nlpToolsFr = new NlpjsTFr(corpus);
+nlpToolsFr = new NlpjsTFr(corpus, {
     tagTypes: ['art', 'ver', 'nom'],
     strictness: false,
+    minimumLength: 3,
     perfLog: true,
-    minimumLength: 3
+    debug: true
 });
-// var nlpToolsFr = new NlpjsTFr(corpus);
 
 var tokenizedWords = nlpToolsFr.tokenizer();
-var taggedWords = nlpToolsFr.posTagger();
-var taggedWords = nlpToolsFr.lemmatizer();
-console.log((Date.now() - t1) / 1000);
+var posTaggedWords = nlpToolsFr.posTagger();
+var lemmatizedWords = nlpToolsFr.lemmatizer();
+var stemmedWords = nlpToolsFr.stemmer();

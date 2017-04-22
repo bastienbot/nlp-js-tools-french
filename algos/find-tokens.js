@@ -1,7 +1,7 @@
 'use strict';
 
 var Dicts = require('../dict');
-var helpers = require('../helpers');
+var Helpers = require('../helpers');
 
 module.exports = function(_that) {
     var taggedWords = [];
@@ -30,6 +30,5 @@ module.exports = function(_that) {
             });
         });
     });
-    // console.log(taggedObjs);
-    return helpers.orderByObjId(taggedObjs);
+    return Helpers.orderByObjId(taggedObjs);
 };
