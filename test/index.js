@@ -2,15 +2,15 @@
 
 var NlpjsTFr = require('../');
 
-var corpus = "Elle semble se nourrir essentiellement de plancton, et de hotdog.";
+var corpus = "Elle semble se nourrir généralement de plancton, et de hotdog du vendeur dù coin.";
 
 var nlpToolsFr = new NlpjsTFr(corpus);
 nlpToolsFr = new NlpjsTFr(corpus, {
-    tagTypes: ['art', 'ver', 'nom'],
+    // tagTypes: ['art', 'ver', 'nom'],
     strictness: false,
-    minimumLength: 3,
+    // minimumLength: 3,
     perfLog: true,
-    debug: true
+    // debug: true
 });
 
 var tokenizedWords = nlpToolsFr.tokenizer();
