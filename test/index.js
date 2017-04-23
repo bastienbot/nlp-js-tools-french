@@ -14,6 +14,7 @@ nlpToolsFr = new NlpjsTFr(corpus, {
     perfLog: true
 });
 
+var tokenizedWords = nlpToolsFr.tokenized;
 var posTaggedWords = nlpToolsFr.posTagger();
 var lemmatizedWords = nlpToolsFr.lemmatizer();
 var stemmedWords = nlpToolsFr.stemmer();

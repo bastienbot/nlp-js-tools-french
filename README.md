@@ -38,20 +38,25 @@ var nlpToolsFr = new NlpjsTFr(corpus, config);
 ```
 
 These are the available methods, self-explanatory.
-**Note:** in order to use the three last methods, you have to tokenize first.
+**Note:** The sentence that is passed into the class earlier is automaticaly tokenized.
 ```
-var tokenizedWords = nlpToolsFr.tokenizer();
+var tokenizedWords = nlpToolsFr.tokenized;
 var posTaggedWords = nlpToolsFr.posTagger();
 var lemmatizedWords = nlpToolsFr.lemmatizer();
 var stemmedWords = nlpToolsFr.stemmer();
 ```
 
-## Methods return
+## Attributes
 
-#### tokenizer()
+#### config
+Shows config 
+#### tokenized
 ```
 ["semble", "nourrir", "de"]
 ```
+
+## Methods return
+
 #### posTagger()
 ```
 [{
