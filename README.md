@@ -44,12 +44,13 @@ var tokenizedWords = nlpToolsFr.tokenized;
 var posTaggedWords = nlpToolsFr.posTagger();
 var lemmatizedWords = nlpToolsFr.lemmatizer();
 var stemmedWords = nlpToolsFr.stemmer();
+var stemmedWord = nlpToolsFr.wordStemmer("aléatoirement");
 ```
 
 ## Attributes
 
 #### config
-Shows config 
+Shows config
 #### tokenized
 ```
 ["semble", "nourrir", "de"]
@@ -119,6 +120,14 @@ Shows config
   "word": "de",
   "stem": "de"
 }]
+```
+
+#### stemmer(word)
+```
+{
+    word: "aléatoirement",
+    stem: "aléatoir"
+}
 ```
 
 ## Config

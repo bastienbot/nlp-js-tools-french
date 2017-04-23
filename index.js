@@ -4,7 +4,7 @@ var Config = require('./config');
 var Logger = require('./logger');
 var Tokenize = require('./algos/tokenize');
 var FindTokens = require('./algos/find-tokens');
-var Stem = require('./algos/stem');
+var StemTools = require('./algos/stem');
 var PosTag = require('./algos/pos-tag');
 var Lemmatize = require('./algos/lemmatize');
 
@@ -43,9 +43,15 @@ function NlpjsTFr(sentence, userConfig) {
     };
 
     this.stemmer = function() {
-        this.stemmed = Stem(this);
+        this.stemmed = StemTools.stem(this);
         this.logger.debug("Stemmed: ", this.stemmed);
         return this.stemmed;
+    };
+
+    this.wordStemmer = function(word) {
+        var stemmedWord = StemTools.stemWord(word);
+        this.logger.debug("StemmedWord: ", stemmedWord);
+        return stemmedWord;
     };
 
 }

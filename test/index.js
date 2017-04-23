@@ -18,3 +18,4 @@ var tokenizedWords = nlpToolsFr.tokenized;
 var posTaggedWords = nlpToolsFr.posTagger();
 var lemmatizedWords = nlpToolsFr.lemmatizer();
 var stemmedWords = nlpToolsFr.stemmer();
+var stemmedWord = nlpToolsFr.wordStemmer("aléatoirement");

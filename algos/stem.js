@@ -1,15 +1,24 @@
 'use strict';
 
-module.exports = function(_that) {
-    var stemmedObjects = [];
-    _that.tokenized.forEach(function(token, index) {
-        stemmedObjects.push({
-            id: index,
-            word: token,
-            stem: stem(token)
+module.exports = {
+    stem: function(_that) {
+        var stemmedObjects = [];
+        _that.tokenized.forEach(function(token, index) {
+            stemmedObjects.push({
+                id: index,
+                word: token,
+                stem: stem(token)
+            });
         });
-    });
-    return stemmedObjects;
+        return stemmedObjects;
+    },
+
+    stemWord: function(word) {
+        return {
+            word: word,
+            stem: stem(word)
+        }
+    }
 }
 
 /*
