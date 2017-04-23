@@ -122,7 +122,7 @@ Shows config
 }]
 ```
 
-#### stemmer(word)
+#### wordStemmer(word)
 ```
 {
     word: "aléatoirement",
