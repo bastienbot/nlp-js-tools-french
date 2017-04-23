@@ -8,7 +8,7 @@ module.exports = function(_that) {
     var taggedObjs = [];
     var wordsAsObj = [];
     _that.tokenized.forEach(function(word, id) {
-        wordsAsObj.push({id, word});
+        wordsAsObj.push({id, word: word.toLowerCase()});
     });
     var dicWord = _that.config.strictness === true ? "word" : "word_nosc";
     // We go through all types so we won't need

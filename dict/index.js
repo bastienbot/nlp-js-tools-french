@@ -7,6 +7,7 @@ var nom = require('./nom');
 var ono = require('./ono');
 var pre = require('./pre');
 var ver = require('./ver');
+var pro = require('./pro');
 
 module.exports = {
     all: {
@@ -17,6 +18,7 @@ module.exports = {
         nom,
         ono,
         pre,
-        ver
+        ver,
+        pro
     }
 }

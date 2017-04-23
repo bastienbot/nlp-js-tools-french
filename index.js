@@ -15,18 +15,14 @@ function NlpjsTFr(sentence, userConfig) {
     this.config = new Config(userConfig);
     this.logger = new Logger(this.config);
 
+    this.logger.debug("Config: ", this.config);
+
     this.sentence = sentence;
-    this.tokenized = null;
+    this.tokenized = Tokenize(this);
     this.foundTokensInDicts = null;
     this.posTagged = null;
     this.stemmed = null;
     this.lemmatized = null;
-
-    this.tokenizer = function() {
-        this.tokenized = Tokenize(this);
-        this.logger.debug("Tokenizer: ", this.tokenized);
-        return this.tokenized;
-    };
 
     this.posTagger = function() {
         if (this.foundTokensInDicts === null) {

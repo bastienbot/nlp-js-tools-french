@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (userConfig) {
-    this.tagTypes = ["adj", "adv", "art", "con", "nom", "ono", "pre", "ver"];
+    this.tagTypes = ["adj", "adv", "art", "con", "nom", "ono", "pre", "ver", "pro"];
     this.strictness = false;
     this.perfLog = false;
     this.debug = false;
