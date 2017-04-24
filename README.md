@@ -1,4 +1,4 @@
-# [French] NLP Javascript tools
+# NLP Javascript tools for french language
 #### Tokenize, POS Tagger, lemmatizer and stemmer
 
 This package is partly based on the [Snowball stemming algorythm](https://snowballstem.org/algorithms/french/stemmer.html) and the [javascript adaptation](http://snowball.tartarus.org/otherlangs/french_javascript.txt) by _Kasun Gajasinghe, University of Moratuwa_
