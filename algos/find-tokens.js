@@ -18,7 +18,7 @@ module.exports = function(_that) {
         Dicts.all[type].lexi.forEach((wordDict) => {
             // Iterating through words from corpus
             // We compare to either the word with special chars or not
-            wordsAsObj.forEach(function(wordObj) {
+            wordsAsObj.forEach(function(wordObj, index) {
                 if (wordDict[dicWord] === wordObj.word) {
                     taggedObjs.push({
                         id: wordObj.id,
@@ -26,9 +26,22 @@ module.exports = function(_that) {
                         lemma: wordDict.lemma,
                         pos: wordDict.pos,
                     });
+                    wordsAsObj[index].tagged = true;
                 }
             });
         });
+    });
+    // Checking that there a no words left,
+    // otherwise tagging them as "UNK"
+    wordsAsObj.forEach((wordObj) => {
+      if (wordObj.tagged !== true) {
+        taggedObjs.push({
+            id: wordObj.id,
+            word: wordObj.word,
+            lemma: wordObj.word,
+            pos: 'UNK',
+        });
+      }
     });
     return Helpers.orderByObjId(taggedObjs);
 };

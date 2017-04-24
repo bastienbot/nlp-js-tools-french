@@ -2,7 +2,7 @@
 
 var NlpjsTFr = require('../');
 
-var corpus = "Elle semble se nourrir généralement de plancton, et de hotdog du vendeur dù coin.";
+var corpus = "Elle semble se nourrir généralement de plancton, et de hotdog du vendeur du coin.";
 
 var nlpToolsFr;
 // nlpToolsFr = new NlpjsTFr(corpus);

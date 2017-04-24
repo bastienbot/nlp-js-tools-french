@@ -135,6 +135,6 @@ Shows config
 Option | Type | Default | Description
 --- | --- | --- | ---
 tagTpes | Array | `["adj", "adv", "art", "con", "nom", "ono", "pre", "ver", "pro"]` | List of dictionnaries the package will look in, in case you only need verbs or nouns, both or whatever else...
-strictness | Bool | `false` | If you set the strictness to `true` and try to POS Tag the word `generalement`, it will fail because the word is missine its accents. On the other hand, trying to POS Tag the word `dé` with the strictness set to `false` well return the types `art`, `pre` and `nom` because the word will match `de` in the dictionnaries.
+strictness | Bool | `false` | If you set the strictness to `true` and try to POS Tag the word `generalement`, it will fail because the word is missine its accents. On the other hand, trying to POS Tag the word `dé` with the strictness set to `false` well return the types `art`, `pre` and `nom` because the word will match `de` in these dictionnaries.
 minimumLength | Int | 0 | Algorythms will ignore words that are shorter than this parameter.
 debug | Bool | false | Enable console debug
