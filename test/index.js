@@ -9,7 +9,7 @@ var nlpToolsFr;
 nlpToolsFr = new NlpjsTFr(corpus, {
     // tagTypes: ['art', 'ver', 'nom'],
     strictness: false,
-    minimumLength: 3,
+    // minimumLength: 3,
     debug: true,
     perfLog: true
 });
