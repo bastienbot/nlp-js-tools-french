@@ -16,7 +16,7 @@ npm install nlp-js-tools-french
 
 ## Usage
 ```
-var NlpjsTFr = require('../');
+var NlpjsTFr = require('nlp-js-tools-french');
 ```
 Corpus to use
 ```
