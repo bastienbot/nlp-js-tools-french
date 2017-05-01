@@ -8,6 +8,7 @@ var nlpToolsFr;
 // nlpToolsFr = new NlpjsTFr(corpus);
 nlpToolsFr = new NlpjsTFr(corpus, {
     tagTypes: ['adj', 'ver', 'nom'],
+    strictness: false,
     minimumLength: 3,
     debug: true,
     // perfLog: true

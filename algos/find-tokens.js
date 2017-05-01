@@ -43,5 +43,5 @@ module.exports = function(_that) {
         });
       }
     });
-    return Helpers.orderByObjId(taggedObjs);
+    return Helpers.orderByObjId(Helpers.removeDuplicateObjects(taggedObjs));
 };
