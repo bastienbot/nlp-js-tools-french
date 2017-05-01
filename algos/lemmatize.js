@@ -1,5 +1,7 @@
 'use strict';
 
+var Helpers = require('../helpers');
+
 module.exports = function(_that) {
     var lemmas = [];
     var currentWord = null;
@@ -11,5 +13,5 @@ module.exports = function(_that) {
         };
         lemmas.push(currentWord);
     });
-    return lemmas;
+    return Helpers.removeDuplicateObjects(lemmas);
 }

@@ -30,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/bastienbot/nlp-js-tools-french/issues"
   },
-  "homepage": "https://github.com/bastienbot/nlp-js-tools-french#readme"
+  "homepage": "https://github.com/bastienbot/nlp-js-tools-french#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }
