@@ -4,6 +4,7 @@
   "description": "POS Tagger and lemmatizer for javascript",
   "main": "index.js",
   "scripts": {
+    "update": "npm version patch && npm publish",
     "test": "node test/index.js"
   },
   "repository": {
